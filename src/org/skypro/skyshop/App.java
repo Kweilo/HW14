@@ -1,16 +1,19 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
+import org.skypro.skyshop.product.DiscountedProduct;
+import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.SimpleProduct;
 
 public class App {
     public static void main(String[] args) {
-        Product cat = new Product("Игрушка Кошка", 100);
-        Product dog = new Product("Игрушка Собака", 100);
-        Product fish = new Product("Игрушка Рыба", 100);
-        Product bread = new Product("Игрушка Хбеб", 100);
-        Product white = new Product("Игрушка Белая", 100);
-        Product black = new Product("Игрушка Черная", 100);
+        Product cat = new SimpleProduct("Игрушка Кошка", 100);
+        Product dog = new DiscountedProduct("Игрушка Собака", 100, 30 );
+        Product fish = new FixPriceProduct("Игрушка Рыба");
+        Product bread = new SimpleProduct("Игрушка Хбеб", 100);
+        Product white = new SimpleProduct("Игрушка Белая", 100);
+        Product black = new SimpleProduct("Игрушка Черная", 100);
 
         ProductBasket basket = new ProductBasket();
 

@@ -22,20 +22,25 @@ public class ProductBasket {
         int cost = 0;
         for (Product product : basket) {
             if (product != null) {
-                cost += product.getCost();
+                cost += product.getPrice();
             }
         }
         return cost;
     }
     public void printBasket() {
+        int specialProducts = 0;
         for (Product product : basket) {
             if (product != null) {
-                System.out.println(product.getName() + ":" + product.getCost());
+                System.out.println(product.toString());
+                if (product.isSpecial()){
+                    specialProducts++;
+                }
             }
         }
         int cost = basketCost();
         if (cost > 0) {
             System.out.println("Итого " + basketCost());
+            System.out.println("Специальных товаров: " + specialProducts);
         } else {
             System.out.println("B корзине пусто");
         }
