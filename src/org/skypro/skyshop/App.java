@@ -1,10 +1,14 @@
 package org.skypro.skyshop;
 
+import org.skypro.skyshop.article.Article;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.DiscountedProduct;
 import org.skypro.skyshop.product.FixPriceProduct;
 import org.skypro.skyshop.product.Product;
 import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.search.SearchEngine;
+
+import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
@@ -14,6 +18,7 @@ public class App {
         Product bread = new SimpleProduct("Игрушка Хбеб", 100);
         Product white = new SimpleProduct("Игрушка Белая", 100);
         Product black = new SimpleProduct("Игрушка Черная", 100);
+        Article green = new Article("Бла бла бла", "Круто");
 
         ProductBasket basket = new ProductBasket();
 
@@ -30,6 +35,12 @@ public class App {
 
         System.out.println(basket.hasName("Игрушка Кошка"));
         System.out.println(basket.hasName("Игрушка Гусь"));
+        SearchEngine search = new SearchEngine(5);
+        search.add(green);
+        search.add(cat);
+        search.add(dog);
+        System.out.println(Arrays.toString((search.search("Игрушка"))));
+        System.out.println(Arrays.toString((search.search("Бла"))));
 
         basket.clearBasket();
         basket.printBasket();
